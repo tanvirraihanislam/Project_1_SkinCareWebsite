@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Style for the container of the dots */
+.naaskinn-slider .slick-dots {
+  position: absolute;
+  bottom: 2rem; /* Adjust vertical position */
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  display: flex !important; /* Use !important if needed to override theme */
+  justify-content: center;
+  list-style: none;
+  z-index: 5; /* Ensure dots are above slide images */
+}
+
+/* Style for each dot list item */
+.naaskinn-slider .slick-dots li {
+  margin: 0 4px; /* Spacing between dots */
+  padding: 0;
+  width: auto;
+  height: auto;
+}
+
+/* The actual dot element before it's styled by customPaging */
+.naaskinn-slider .slick-dots li button {
+  padding: 0; /* Reset button padding */
+  display: block; /* Ensure the customPaging div fills the button */
+}
+
+/* Hide the default ::before pseudo-element dots */
+.naaskinn-slider .slick-dots li button:before {
+  content: none;
+}
+
+/* Style for the inactive dot (using the class from customPaging) */
+.naaskinn-slider .slick-dots li .slick-dot-inactive {
+  width: 0.6rem; /* Size of inactive dot */
+  height: 0.6rem;
+  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+/* Style for the active dot */
+.naaskinn-slider .slick-dots li.slick-active .slick-dot-inactive {
+  background-color: white; /* Solid white */
+}
+
+/* Optional: Enhance hover state */
+.naaskinn-slider .slick-dots li button:hover .slick-dot-inactive {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Ensure carousel fills height */
+.naaskinn-slider,
+.naaskinn-slider .slick-list,
+.naaskinn-slider .slick-track,
+.naaskinn-slider .slick-slide,
+.naaskinn-slider .slick-slide > div {
+  height: 100%; /* Force height inheritance */
+}
